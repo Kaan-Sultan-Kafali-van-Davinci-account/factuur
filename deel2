@@ -1,0 +1,58 @@
+from reportlab.pdfgen import canvas
+
+text = ["Tunari",
+
+"Romboutslaan 34",
+
+"3312 KP, Dordrecht",
+"",
+
+"Kvk: 123455678",
+
+"Btw: NL123456789B01",
+"",
+
+"Aan:",
+
+"Pietje Puk",
+
+"Walenburg 37,",
+
+"3328 EH Dordrecht",
+"",
+
+"2025",
+
+"Factuurnummer: 0000000",
+
+"Factuurdatum: 25-01-2025",
+
+"Vervaldatum: 20-02-2025",
+"",
+
+"Omschrijving Bedrag BTW Totaal",
+
+"Programma €200,00 21% €200,00",
+"",
+
+"TOTAAL EXCL. BTW",
+
+"€200,00",
+"",
+
+"Btw: 21% Bedrag: €200,00",
+"",
+
+"Totaal Btw: €42,00",
+"",
+
+"Te betalen:",
+
+"€242,00"]
+
+c = canvas.Canvas("PDF_INVOICE/ontwerp.pdf")
+c.setFont("Helvetica", 12)
+for index, line in enumerate(text):
+    c.drawString(20, 750 - (index * 20), line)
+c.drawImage("logo.png", 2, 790, 150, 50, mask=[0, 0, 0])
+c.save()
